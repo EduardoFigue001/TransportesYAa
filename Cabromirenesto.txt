@@ -1,0 +1,40 @@
+Google Maps Distance Matrix API
+La API de Google Maps Distance Matrix proporciona distancias y tiempos de viaje entre varios puntos. Para usar esta API, necesitarás una clave de API de Google.
+
+Ejemplo de Solicitud:
+
+http
+Copiar código
+https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=place_id:ChIJP3Sa8ziYEiI RFh4hM3
+&destinations=place_id:ChIJN1tTNLuSeygRp5rG1L7
+&key=YOUR_API_KEY
+
+Parámetros:
+
+origins: El punto de partida (puede ser una dirección, coordenadas o place_id).
+destinations: El destino (puede ser una dirección, coordenadas o place_id).
+key: Tu clave de API de Google.
+Respuesta JSON:
+
+json
+Copiar código
+{
+   "rows": [
+      {
+         "elements": [
+            {
+               "distance": {
+                  "text": "14.3 km",
+                  "value": 14300
+               },
+               "duration": {
+                  "text": "15 mins",
+                  "value": 900
+               },
+               "status": "OK"
+            }
+         ]
+      }
+   ],
+   "status": "OK"
+}
