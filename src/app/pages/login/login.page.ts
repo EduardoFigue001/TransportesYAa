@@ -12,12 +12,12 @@ export class LoginPage implements OnInit {
 
   //Esta es la estructura que vamos a rescatar desde la vista del login y luego interactuará con el servicio
   pageLogin: Login = {
-    name: "",
-    lastname: "",
-    rut: "",
-    address: "",
-    email: "",
-    password: "",
+    name: " ",
+    lastname: " ",
+    rut: " ",
+    address: " ",
+    email: " ",
+    password: " ",
     role: {
       admin: false,
       user: false,
@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
       l:false,
       xl:false
     },
-    patente: ""
+    patente: " "
   }
   
   constructor(private _user:LoginService, private router:Router) { }
@@ -37,10 +37,15 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   /*Función que llama a la validación en el servicio*/
-  login(login:Login){
-    if(this._user.validateLogin(login)){
+  login(loogin:Login|any){
+    if(this._user.validateLogin(loogin)){
+      loogin =this._user.getUser(loogin.email,loogin.password)
       //se envia la info a la sgte página
-
+      this.router.navigate(['inicio'],{
+        state: {
+          userInfo: loogin
+        }
+      });
     }
     else console.info("error de autenticación");
   }

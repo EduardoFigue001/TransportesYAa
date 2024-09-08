@@ -65,14 +65,22 @@ export class LoginService {
     for(let i=0;i<this.loginService.length;i++){
       if(this.loginService[i].email == login.email && this.loginService[i].password == login.password){
         //con estas tres líneas, copiamos la info del rol y la setteamos según se condice en el servicio con el user y pass.
-        login.role = this.loginService[i].role;
-        if(login.role.driver){
+        login = this.loginService[i];
+        /*if(login.role.driver){
           login.tipoCamion = this.loginService[i].tipoCamion;
-        }
+        }*/
         console.info("succes");
         return true;
       }
     }
     return false;
+  }
+  getUser(email:string,password:string){
+    for(let i=0;i<this.loginService.length;i++){
+      if(this.loginService[i].email == email && this.loginService[i].password == password){
+        return this.loginService[i];
+      }
+    }
+    return null
   }
 }
