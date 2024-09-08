@@ -10,17 +10,26 @@ export class LoginService {
   //Como aún no ocupamos BD, entonces la llenamos con datos a mano.
   private loginService: Login[] = [
     {
-    user: "administrador",
-    password: "administrador1",
+    name: "admin",
+    lastname: "admin",
+    rut: "12456987-9",
+    address: "av falsa 123, valparaiso",
+    email: "a@gmail.com",
+    password: "clave123",
     role: {
       admin: true,
       user: false,
       driver: false
     }
+    
   },
   {
-    user: "usuario",
-    password: "usuario1",
+    name: "pasajero",
+    lastname: "pasajero",
+    rut: "12416987-9",
+    address: "av falsa 124, valparaiso",
+    email: "p@gmail.com",
+    password: "clave123",
     role: {
       admin: false,
       user: true,
@@ -28,13 +37,24 @@ export class LoginService {
     }
   },
   {
-    user: "conductor",
-    password: "conductor1",
+    name: "conductor",
+    lastname: "conductor",
+    rut: "12452387-9",
+    address: "av falsa 125, valparaiso",
+    email: "c@gmail.com",
+    password: "clave123",
     role: {
       admin: false,
       user: false,
       driver: true
-    }
+    },
+    tipoCamion: {
+      s: false,
+      m:false,
+      l:false,
+      xl:true
+    },
+    patente: "ickkck-69"
   }
 ]
   constructor() { }
@@ -43,11 +63,13 @@ export class LoginService {
 
   validateLogin(login:Login){
     for(let i=0;i<this.loginService.length;i++){
-      if(this.loginService[i].user == login.user && this.loginService[i].password == login.password){
+      if(this.loginService[i].email == login.email && this.loginService[i].password == login.password){
         //con estas tres líneas, copiamos la info del rol y la setteamos según se condice en el servicio con el user y pass.
-        login.role.admin = this.loginService[i].role.admin;
-        login.role.driver = this.loginService[i].role.driver;
-        login.role.user = this.loginService[i].role.user;
+        login.role = this.loginService[i].role;
+        if(login.role.driver){
+          login.tipoCamion = this.loginService[i].tipoCamion;
+        }
+        console.info("succes");
         return true;
       }
     }

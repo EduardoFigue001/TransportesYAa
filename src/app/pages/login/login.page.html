@@ -8,11 +8,11 @@
 
   <ion-list>
     <ion-item>
-      <ion-input label="Usuario" label-placement="floating" fill="Usuario" placeholder="Usuario"></ion-input>
+      <ion-input [(ngModel)]="pageLogin.email" label="Correo Electronico" label-placement="floating" fill="Correo Electronico" placeholder="Correo Electronico"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="Contraseña" type="password"label-placement="floating" fill="Contraseña" placeholder="Contraseña"></ion-input>
+      <ion-input [(ngModel)]="pageLogin.password" label="Contraseña" type="password"label-placement="floating" fill="Contraseña" placeholder="Contraseña"></ion-input>
     </ion-item>
   </ion-list>
-  
+  <ion-button (click)="login(pageLogin)">Ingresar</ion-button>
 </ion-content>
