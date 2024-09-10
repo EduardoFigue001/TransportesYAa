@@ -4,7 +4,7 @@ export interface Viajes{
     idViaje: number;
     user: Login;
     driver: Login;
-    diaE: Date;
+    diaE: string;
     direccionInicial: string;
     direccionFinal:string;
 }

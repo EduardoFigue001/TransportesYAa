@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
 
   //Esta es la estructura que vamos a rescatar desde la vista del login y luego interactuará con el servicio
   pageLogin: Login = {
+    idViajes: 0,
     name: " ",
     lastname: " ",
     rut: " ",

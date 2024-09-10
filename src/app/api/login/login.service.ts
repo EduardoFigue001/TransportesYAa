@@ -24,6 +24,7 @@ export class LoginService {
     
   },
   {
+    idViajes: 1,
     name: "pasajero",
     lastname: "pasajero",
     rut: "12416987-9",
@@ -37,6 +38,7 @@ export class LoginService {
     }
   },
   {
+    idViajes: 1,
     name: "conductor",
     lastname: "conductor",
     rut: "12452387-9",
@@ -55,6 +57,7 @@ export class LoginService {
       xl:true
     },
     patente: "ickkck-69"
+
   }
 ]
   constructor() { }
@@ -83,4 +86,4 @@ export class LoginService {
     }
     return null
   }
-}
+} 
