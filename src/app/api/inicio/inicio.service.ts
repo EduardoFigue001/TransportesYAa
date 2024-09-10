@@ -88,6 +88,47 @@ export class InicioService {
     diaE: "23-1-2025",
     direccionInicial: "calle pulenta 123,valpo",
     direccionFinal:"segunda calle 456,quilpue"
+},
+{
+  idViaje: 2,
+  user: {
+    idViajes: 2,
+    name: "pasa",
+    lastname: "jero",
+    rut: "124163437-9",
+    address: "av verdadera 124, valparaiso",
+    email: "p@gmail.com",
+    password: "clave123",
+    role: {
+      admin: false,
+      user: true,
+      driver: false
+    }
+  },
+  driver: {
+    idViajes: 2,
+    name: "conduc",
+    lastname: "ctor",
+    rut: "12452387-9",
+    address: "av verdadera 125, valparaiso",
+    email: "c@gmail.com",
+    password: "clave123",
+    role: {
+      admin: false,
+      user: false,
+      driver: true
+    },
+    tipoCamion: {
+      s: false,
+      m:false,
+      l:false,
+      xl:true
+    },
+  patente: "hola-69"
+  },
+  diaE: "24-1-2025",
+  direccionInicial: "calle masomenos 123,valpo",
+  direccionFinal:"tercera calle 456,quilpue"
 }
 ]
 
@@ -107,13 +148,21 @@ export class InicioService {
     ;
   }
   //devuelve una lista de viajes asociados a una cuenta (email)
-  getAllViajes(email:string){
+  getAllViajesUser(email:string){
     let viaje: Viajes[] | undefined; 
     for(let i=0;i<this.viajeService.length;i++){
       if(email == this.viajeService[i].user.email){
         viaje?.push(this.viajeService[i]);
       }
     }
+    return viaje;
+  }
+  getAllViajesAdm(){
+    let viaje: Viajes[] = [];
+    for(let i=1;i<this.viajeService.length;i++){
+      viaje.push(this.viajeService[i]);
+    }
+    console.info("all viajes adm ", viaje);
     return viaje;
   }
 }

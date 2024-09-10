@@ -10,26 +10,56 @@
 
   <!-----SECCION ADMIN-->
   <ion-content *ngIf="user.role.admin">
+    <h2>Lista de viajes en curso</h2>
+    <ion-list *ngFor="let viaje of mostrarTodo()">
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>viaje id: {{viaje.idViaje}}</ion-card-title>
+            <ion-card-subtitle>usuario {{viaje.user.name}} y conductor {{viaje.driver.name}}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            El viaje empezará el día {{viaje.diaE}} en {{viaje.direccionInicial}} hasta {{viaje.direccionFinal}}
+          </ion-card-content>
+        
+          <ion-button fill="clear">Información adicional</ion-button>
+          <ion-button fill="clear" color="danger">Cancelar viaje</ion-button>
+        </ion-card>
+      </ion-item>
+    </ion-list>
     
   </ion-content>
   <!-----SECCION USER-->
   <ion-content *ngIf="user.role.user">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Tu viaje programado</ion-card-title>
-        <ion-card-subtitle>{{mostrarViaje().driver.name}}</ion-card-subtitle>
+        <ion-card-title>Tu viaje programado para el día {{mostrarViaje().diaE}}</ion-card-title>
+        <ion-card-subtitle>{{mostrarViaje().driver.name}} Será tu chofer</ion-card-subtitle>
       </ion-card-header>
     
       <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
+        Espera a {{mostrarViaje().driver.name}} en {{mostrarViaje().direccionInicial}} para que puedan trasladarse hacia {{mostrarViaje().direccionFinal}}
       </ion-card-content>
     
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
+      <ion-button fill="clear">Información adicional</ion-button>
+      <ion-button fill="clear" color="danger">Cancelar viaje</ion-button>
     </ion-card>
   </ion-content>
   <!-----SECCION DRIVE-->
   <ion-content *ngIf="user.role.driver">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Tu viaje programado para el día {{mostrarViaje().diaE}}</ion-card-title>
+        <ion-card-subtitle>{{mostrarViaje().user.name}} Será a quien ayudarás</ion-card-subtitle>
+      </ion-card-header>
     
+      <ion-card-content>
+        Encuentra a  {{mostrarViaje().user.name}} en {{mostrarViaje().direccionInicial}} para que puedan trasladarse hacia {{mostrarViaje().direccionFinal}}
+      </ion-card-content>
+    
+      <ion-button fill="clear">Información adicional</ion-button>
+      <ion-button fill="clear" color="danger">Cancelar Viaje</ion-button>
+    </ion-card>
   </ion-content>
 </ion-content>

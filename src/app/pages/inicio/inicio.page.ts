@@ -74,4 +74,9 @@ export class InicioPage implements OnInit {
     
     return this.viajesControl
   }
+  mostrarTodo(){
+    let viajesArray: Viajes[]= this._inicioService.getAllViajesAdm();
+    console.info(viajesArray);
+    return viajesArray;
+  }
 }

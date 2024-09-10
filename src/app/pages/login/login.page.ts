@@ -17,8 +17,8 @@ export class LoginPage implements OnInit {
     lastname: " ",
     rut: " ",
     address: " ",
-    email: " ",
-    password: " ",
+    email: "",
+    password: "",
     role: {
       admin: false,
       user: false,
