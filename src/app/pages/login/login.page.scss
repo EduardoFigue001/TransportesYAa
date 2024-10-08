@@ -1,0 +1,45 @@
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+ion-card {
+    width: 100%;
+    max-width: 400px; /* Max width for the card */
+    margin: 20px;
+    text-align: center;
+}
+
+ion-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Use flex-start to keep the logo and title closer */
+}
+
+ion-card-title {
+    text-align: left; /* Alineación a la izquierda */
+    flex-grow: 1; /* Toma el espacio restante */
+    padding-left: 50px; /* Espacio entre el logo y el título */
+    margin-left: 20px; /* Ajusta el valor de este margen para mover el título hacia la derecha */
+}
+
+@media (max-width: 768px) {
+    ion-card {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    ion-card-header {
+        flex-direction: column;
+    }
+
+    ion-card-title {
+        text-align: center; /* Center the title on smaller screens */
+    }
+
+    ion-img {
+        width: 100px;
+    }
+}
