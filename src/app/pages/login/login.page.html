@@ -1,18 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title style="text-align: center;">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<!-- Establecer el fondo de un color diferente en el ion-content -->
+<ion-content [fullscreen]="true" class="ion-padding" style="background-color: #ffffff; display: flex; justify-content: center; align-items: center;">
 
-  <ion-list>
-    <ion-item>
-      <ion-input [(ngModel)]="pageLogin.email" label="Correo Electronico" label-placement="floating" fill="Correo Electronico" placeholder="Correo Electronico"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="pageLogin.password" label="Contraseña" type="password"label-placement="floating" fill="Contraseña" placeholder="Contraseña"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="login(pageLogin)">Ingresar</ion-button>
+  <!-- Card con el contenido de login -->
+  <ion-card style="width: 100%; max-width: 400px; text-align: center;">
+    
+    <!-- Añadir logo en la parte superior de la card -->
+    <ion-card-header>
+      <img src="assets/Designer-removebg-preview.png" alt="Logo" style="width: 150px; margin-bottom: 20px;">
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input [(ngModel)]="pageLogin.email" 
+                     label="Correo Electrónico" 
+                     label-placement="floating" 
+                     placeholder="Correo Electrónico"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="pageLogin.password" 
+                     label="Contraseña" 
+                     type="password" 
+                     label-placement="floating" 
+                     placeholder="Contraseña"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" (click)="login(pageLogin)">Ingresar</ion-button>
+    </ion-card-content>
+    
+  </ion-card>
+
 </ion-content>
+
