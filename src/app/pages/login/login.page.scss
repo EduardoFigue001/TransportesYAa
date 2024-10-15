@@ -1,28 +1,94 @@
-ion-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
 ion-card {
     width: 100%;
     max-width: 400px; /* Max width for the card */
     margin: 20px;
     text-align: center;
+    border-radius: 10px; /* Bordes redondeados */
+
+    ion-card-header {
+        background-color: #007bff; /* Color de fondo */
+        color: #ffffff; /* Color del texto */
+
+        &::after {
+            content: ""; /* Asegúrate de que el pseudo-elemento tenga contenido */
+            display: block; /* Asegúrate de que se muestre correctamente */
+            width: 100%; /* Ajusta según sea necesario */
+            height: 2px; /* Altura del pseudo-elemento */
+            background-color: white; /* Cambia el color a blanco */
+            margin-top: 10px; /* Espacio superior opcional */
+        }
+    }
+
+    ion-card-content {
+        background-color: #f8f9fa; /* Color de fondo */
+        color: #333; /* Color del texto */
+        padding: 16px; /* Espaciado interno */
+    }
+
+    .item-inner {
+        background-color: white; /* Cambia el fondo a blanco */
+        color: #333; /* Cambia el color del texto */
+        padding: 16px; /* Espaciado interno opcional */
+        border-radius: 5px; /* Bordes redondeados opcionales */
+    }
 }
 
-ion-card-header {
+ion-content {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start; /* Use flex-start to keep the logo and title closer */
+    height: 100%;
+    background: linear-gradient(to bottom, #f0f0f0, #eaeaea); /* Fondo más claro */
 }
 
-ion-card-title {
-    text-align: left; /* Alineación a la izquierda */
-    flex-grow: 1; /* Toma el espacio restante */
-    padding-left: 50px; /* Espacio entre el logo y el título */
-    margin-left: 20px; /* Ajusta el valor de este margen para mover el título hacia la derecha */
+ion-list {
+    background-color: #f0f0f0; /* Color de fondo más claro */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+ion-item {
+    background-color: #ffffff; /* Fondo blanco para el ítem */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espaciado entre ítems */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+
+    &.ion-focused {
+        background-color: #f0f8ff; /* Fondo claro al enfocarse */
+    }
+
+    &:hover {
+        background-color: #f9f9f9; /* Fondo ligeramente más claro al pasar el mouse */
+    }
+}
+
+ion-input {
+    --background: #ffffff; /* Fondo blanco para el input */
+    --placeholder-color: #aaa; /* Color del placeholder */
+    --color: #333; /* Color del texto */
+    --border-color: #007bff; /* Color del borde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border 0.3s; /* Transición suave */
+
+    &:focus {
+        --border-color: #007bff; /* Color del borde al enfocarse */
+        border: 2px solid #007bff; /* Borde personalizado en enfoque */
+    }
+}
+
+ion-button {
+    border-radius: 20px; /* Bordes redondeados en el botón */
+}
+
+ion-note {
+    margin-top: 15px; /* Espacio entre el botón y el enlace de contraseña */
+    display: block; /* Para asegurarse de que se muestre en su propia línea */
+}
+
+ion-footer {
+    padding: 10px; /* Espacio en el pie de página */
+    text-align: center; /* Centrar el contenido del pie de página */
 }
 
 @media (max-width: 768px) {
@@ -36,7 +102,7 @@ ion-card-title {
     }
 
     ion-card-title {
-        text-align: center; /* Center the title on smaller screens */
+        text-align: center; /* Centrar el título en pantallas más pequeñas */
     }
 
     ion-img {

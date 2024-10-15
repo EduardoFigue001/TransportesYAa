@@ -4,19 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" style="background-color: #ffffff; display: flex; justify-content: center; align-items: center;">
-
+<ion-content [fullscreen]="true" class="ion-padding">
   <!-- Card con el contenido de login -->
-  <ion-card style="width: 100%; max-width: 400px; text-align: center;">
-    
-    <!-- Añadir logo y título en la parte superior de la card con flexbox -->
+  <ion-card>
     <ion-card-header>
       <div style="display: flex; align-items: center; width: 100%; justify-content: flex-start;">
-        <!-- Logo a la izquierda -->
         <img src="assets/Designer-removebg-preview.png" alt="Logo" style="width: 100px; margin-right: 10px;">
-        
-        <!-- Título de la card con algo de espacio a la izquierda -->
-        <ion-card-title style="text-align: left; flex: 1; padding-left: 10px;">Iniciar Sesión</ion-card-title>
+        <ion-card-title>Iniciar Sesión</ion-card-title>
       </div>
     </ion-card-header>
 
@@ -36,9 +30,13 @@
                      placeholder="Contraseña"></ion-input>
         </ion-item>
       </ion-list>
-      <ion-button expand="block" (click)="login(pageLogin)">Ingresar</ion-button>
+      <ion-button expand="block" (click)="login(pageLogin)" color="secondary">
+        <ion-icon slot="start" name="log-in"></ion-icon>
+        Acceder
+      </ion-button>
+      <ion-note slot="end">
+        <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
+      </ion-note>
     </ion-card-content>
-    
   </ion-card>
-
 </ion-content>
